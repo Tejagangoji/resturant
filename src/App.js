@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 
 /* function withnav() {
   return (
@@ -18,6 +20,8 @@ function App() {
           {/* <Route path='/' Component={withnav}>
             <Route exact path='/' Component={Home} />
           </Route> */}
+          <Route path='/register' Component={Register} />
+          <Route path='/login' Component={Login} />
         </Routes>
       </BrowserRouter>
     </div>
