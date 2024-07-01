@@ -3,21 +3,25 @@ import '../styles/login.css';
 import { FaUserCircle } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
+    const navigate = useNavigate();
     const [register, setregister] = useState({ username: "", email: "", password: "" });
     const changeHandler = (e) => {
         setregister({ ...register, [e.target.name]: e.target.value });
     }
     const submitHnalder = (e) => {
         e.preventDefault();
-        console.log(register)
+        axios.post("http://localhost:5000/register", register).then(res => {toast(res.data); return navigate('/login')}).catch(err => toast(err.response.data));
     }
     return (
         <div onSubmit={submitHnalder} className='login'>
             <div className="loginwrap">
-                <div className="loginchilddivs loginimg"></div>
+                <div className="loginchilddivs registerimg"></div>
                 <div className="loginchilddivs loginformdiv">
                     <form className='loginform'>
                         <h2 className='loginhead'>Create Account</h2>
@@ -38,6 +42,7 @@ export default function Register() {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }

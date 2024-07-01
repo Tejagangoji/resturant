@@ -1,0 +1,38 @@
+.navbar {
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.logo {
+    padding-left: 1rem;
+}
+
+.navlists {
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.listitems {
+    font-weight: 600;
+    font-size: 27px;
+    list-style-type: none;
+    font-family: "Lily Script One";
+}
+
+.navaction {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: "Lilita One";
+    background-color: #FFA500;
+    border: none;
+    color: white;
+    padding: 0.6rem;
+}

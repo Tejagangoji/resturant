@@ -1,0 +1,71 @@
+.sliderbg {
+    width: 90vw;
+    margin: 0 auto;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+}
+
+.bg1 {
+    background-image: url('../ascerts/Foodimages/1.jpg');
+}
+
+.bg2 {
+    background-image: url('../ascerts/Foodimages/2.jpg');
+}
+
+.bg3 {
+    background-image: url('../ascerts/Foodimages/3.jpg');
+}
+
+.bg4 {
+    background-image: url('../ascerts/Foodimages/4.jpg');
+}
+
+.categoryitems {
+    width: 100%;
+    height: 30vh;
+    background-color: black;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catitems {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cateitemimg {
+    width: 60%;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.catwrap {
+    width: 90%;
+    margin: 0 auto;
+    height: 80%;
+    background-image: linear-gradient(to right top, #F1CB45, #8B7528);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+    .sliderbg {
+        height: 50vh;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    .sliderbg {
+        height: 50vh;
+    }
+}

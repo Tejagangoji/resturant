@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import '../styles/login.css';
 import { FaUserCircle } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+    const navigate = useNavigate();
     const [login, setlogin] = useState({ username: "", password: "" });
     const changeHandler = (e) => {
         setlogin({ ...login, [e.target.name]: e.target.value });
     }
     const submitHnalder = (e) => {
         e.preventDefault();
-        console.log(login)
+        axios.post("http://localhost:5000/login", login).then(res => {toast(res.data); return navigate('/')}).catch(err => toast(err.response.data));
     }
     return (
         <div className='login'>
@@ -33,6 +37,7 @@ export default function Login() {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     )
 }
