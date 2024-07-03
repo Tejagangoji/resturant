@@ -1,0 +1,25 @@
+.menubanner {
+    width: 100vw;
+    height: 40vh;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.menubennerimg {
+    width: 50%;
+    height: 100%;
+}
+
+.menubanimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.menubannerheading {
+    text-transform: capitalize;
+    color: white;
+    padding-left: 2rem;
+}
