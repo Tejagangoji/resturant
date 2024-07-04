@@ -10,6 +10,8 @@ import Home from './Pages/admin/Home';
 import Products from './Pages/admin/Products';
 import Adminorders from './Pages/admin/Adminorders';
 import Menu from './Pages/Menu';
+import Wholemenu from './Pages/Wholemenu';
+import Contact from './Pages/Contact';
 
 function withnav() {
   return (
@@ -31,6 +33,12 @@ function App() {
           </Route>
           <Route exact path='/menu/:category' Component={withnav}>
             <Route exact path='/menu/:category' Component={Menu} />
+          </Route>
+          <Route exact path='/menu' Component={withnav}>
+            <Route exact path='/menu' Component={Wholemenu} />
+          </Route>
+          <Route exact path='/contact' Component={withnav}>
+            <Route exact path='/contact' Component={Contact} />
           </Route>
           <Route path='/register' Component={Register} />
           <Route path='/login' Component={Login} />

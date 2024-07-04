@@ -21,41 +21,42 @@ export default function Products() {
     axios.get("http://localhost:5000/getproducts").then(res => { setproducts(res.data) }).catch(err => toast(err.response.data));
   }, [])
   return (
-    localStorage.getItem("adminlogin") ? 
-    <div className='adminproducts'>
-      <div className='adddprodct'>
-        <form onSubmit={submitHandler} action="" className="addproduct">
-          <input name='name' onChange={changeHandler} type="text" placeholder='name' />
-          <input name='image' onChange={changeHandler} type="text" placeholder='image' />
-          <input name='price' onChange={changeHandler} type="text" placeholder='price' />
-          <select onChange={changeHandler} name="category">
-            <option value="biryani">Biryani</option>
-            <option value="burger">Burger</option>
-            <option value="breakfast">Breakfast</option>
-            <option value="milkshakes">Milkshakes</option>
-          </select>
-          <input type="submit" value="Add" />
-        </form>
-      </div>
-      <div className="productslist">
-        {products.length > 0 && products.map((item) => {
-          return(
-            <div className='adminproduct' key={item._id}>
-              <div className='adminproimg'>
-                <img className='adminproductimg' src={item.image} alt="" />
+    localStorage.getItem("adminlogin") ?
+      <div className='adminproducts'>
+        <div className='adddprodct'>
+          <form onSubmit={submitHandler} action="" className="addproduct">
+            <input name='name' onChange={changeHandler} type="text" placeholder='name' />
+            <input name='image' onChange={changeHandler} type="text" placeholder='image' />
+            <input name='price' onChange={changeHandler} type="text" placeholder='price' />
+            <select onChange={changeHandler} name="category">
+              <option value="biryani">Select an option</option>
+              <option value="biryani">Biryani</option>
+              <option value="burger">Burger</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="milkshakes">Milkshakes</option>
+            </select>
+            <input type="submit" value="Add" />
+          </form>
+        </div>
+        <div className="productslist">
+          {products.length > 0 && products.map((item) => {
+            return (
+              <div className='adminproduct' key={item._id}>
+                <div className='adminproimg'>
+                  <img className='adminproductimg' src={item.image} alt="" />
+                </div>
+                <div>
+                  <div>{item.name}</div>
+                  <div>{item.price}</div>
+                  <div>{item.category}</div>
+                  <button onClick={() => productDelete(item._id)} >Delete</button>
+                </div>
               </div>
-              <div>
-                <div>{item.name}</div>
-                <div>{item.price}</div>
-                <div>{item.category}</div>
-                <button onClick={() => productDelete(item._id)} >Delete</button>
-              </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
-    </div>
-    : <Navigate to={'/adminlogin'} />
+      : <Navigate to={'/adminlogin'} />
   )
 }
