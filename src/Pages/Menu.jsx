@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/menu.css';
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import biryani from '../ascerts/Menubanner/biryani.jfif';
 import burger from '../ascerts/Menubanner/burger.jpg';
 import dosa from '../ascerts/Menubanner/dosa.jfif';
@@ -12,13 +12,19 @@ import axios from 'axios';
 export default function Menu() {
     const { category } = useParams();
     const [products, setproducts] = useState([]);
+    const [cart, setcart] = useState([]);
+    const cartproducts = cart.length > 0 ? cart.map(item => item.productid._id) : []
     const filterproducts = products.length > 0 ? products.filter(item => item.category === category) : [];
+    const addtocart = (id) => {
+        axios.post("http://localhost:5000/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { toast(res.data) }).catch(err => toast(err.response.data));
+    }
 
     useEffect(() => {
         axios.get("http://localhost:5000/getproducts").then(res => { setproducts(res.data) }).catch(err => toast(err.response.data));
+        axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data) }).catch(err => toast(err.response.data));
     }, []);
     return (
-        localStorage.getItem("userlogin") ?
+        localStorage.getItem("userid") ?
             <div className='menu'>
                 <div className="menubanner">
                     <div className='menubennerimg'>
@@ -41,7 +47,7 @@ export default function Menu() {
                                 <div>
                                     <div className='menuitemtitle'>{item.name}</div>
                                     <div className='menuitemprice'>RS: {item.price} /-</div>
-                                    <div><button className='menuitemaddbtn'>Add</button></div>
+                                    <div>{cartproducts.includes(item._id) ? <button className='menuitemaddbtn'><Link className='link' to={'/cart'}>Go to Cart</Link></button> : <button onClick={() => addtocart(item._id)} className='menuitemaddbtn'>Add</button>}</div>
                                 </div>
                             </div>
                         )

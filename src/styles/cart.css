@@ -1,0 +1,95 @@
+.cart {
+    padding-top: 1rem;
+}
+
+.cartitemdiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(209, 209, 209);
+    margin-bottom: 1rem;
+    width: 100vw;
+    height: 15rem;
+}
+
+.cartitemimgdiv {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartitemimg {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border: 5px solid white;
+}
+
+.removecart {
+    padding-right: 2rem;
+}
+
+.removecartbtn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+}
+
+.cartitemdeldiv {
+    font-size: 1.5rem;
+}
+
+.totalcart {
+    width: 100vw;
+    height: 5rem;
+    background-color: #FFA500;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.totalofcart {
+    padding-left: 1rem;
+    color: white;
+}
+
+.placeorderbtndiv {
+    padding-right: 2rem;
+}
+
+.placeorderbtn {
+    width: 100%;
+    background-color: green;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+    .cartitemdiv {
+        height: 10rem;
+    }
+
+    .cartitemdeldiv {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .cartitemdiv {
+        height: 10rem;
+    }
+
+    .cartitemdeldiv {
+        font-size: 1.4rem;
+    }
+}
