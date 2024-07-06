@@ -1,0 +1,86 @@
+.address {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addresswrap {
+    width: 40%;
+    height: 90%;
+    background-color: rgb(211, 211, 211);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addressform {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.addresinputs {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+}
+
+.addresssubbtn {
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: black;
+    padding: 1rem 0;
+}
+
+/* payment styling */
+
+.payment {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentwrap {
+    width: 440px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.paymentbtns {
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 0.3rem 1rem;
+    margin-top: 1rem;
+}
+
+.sucbtn {
+    background-color: green;
+}
+
+.faibtn {
+    background-color: red;
+    margin-left: 1.4rem;
+}
+
+@media (max-width: 480px) {
+    .addresswrap {
+        width: 80%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .addresswrap {
+        width: 80%;
+    }
+}
