@@ -1,0 +1,46 @@
+.ordersdiv {
+    background-color: rgb(212, 212, 212);
+    margin-top: 1rem;
+}
+
+.orderdivleft {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #FFA500;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.orderitems {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.orderprodiv {
+    width: 220px;
+}
+
+.prodivimg {
+    width: 100%;
+}
+
+.proorderimg {
+    width: 95%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.productorderdetname {
+    text-transform: capitalize;
+}

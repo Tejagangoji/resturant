@@ -17,6 +17,8 @@ import Address from './Pages/Address';
 import Context from './context/Context';
 import Payment from './Pages/Payment';
 import Orderfail from './Pages/Orderfail';
+import OrderSuccess from './Pages/OrderSuccess';
+import Orders from './Pages/Orders';
 
 function withnav() {
   return (
@@ -57,6 +59,12 @@ function App() {
             </Route>
             <Route exact path='/orderfail' Component={withnav}>
               <Route exact path='/orderfail' Component={Orderfail} />
+            </Route>
+            <Route exact path='/ordersuccess' Component={withnav}>
+              <Route exact path='/ordersuccess' Component={OrderSuccess} />
+            </Route>
+            <Route exact path='/orders' Component={withnav}>
+              <Route exact path='/orders' Component={Orders} />
             </Route>
             <Route path='/register' Component={Register} />
             <Route path='/login' Component={Login} />

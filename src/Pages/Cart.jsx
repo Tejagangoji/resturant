@@ -4,8 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/cart.css';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/Context';
 
 export default function Cart() {
+    const { carts, setcarts } = useCart();
     const [cart, setcart] = useState([]);
     const total = cart.reduce((total, item) => {
         return Number(total) + Number(item.productid.price * item.quantity)
@@ -18,7 +20,7 @@ export default function Cart() {
         axios.delete(`http://localhost:5000/removefromcart/${id}/${localStorage.getItem("userid")}`).then(res => { window.location.reload() }).catch(err => toast(err.response.data));
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data) }).catch(err => toast(err.response.data));
+        axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data); setcarts(res.data) }).catch(err => toast(err.response.data));
     }, []);
     return (
         <div className='cart' >
