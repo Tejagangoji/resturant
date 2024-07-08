@@ -12,8 +12,6 @@ export default function Payment() {
     const total = carts.reduce((total, item) => {
         return Number(total) + Number(item.productid.price * item.quantity)
     }, 0);
-    console.log(address);
-    console.log(carts);
     const placeOrder = () => {
         axios.post("http://localhost:5000/placeanorder", { userid: localStorage.getItem("userid"), cart: carts, total: total, address: address, status: false }).then(res => { toast(res.data); return navigate('/ordersuccess') }).catch(err => toast(err.response.data));
     }

@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/Context';
 
 export default function Cart() {
-    const { carts, setcarts } = useCart();
-    const [cart, setcart] = useState([]);
+    const { cart, setcart } = useCart();
+    //const [cart, setcart] = useState([]);
+    //loading state = false;
     const total = cart.reduce((total, item) => {
         return Number(total) + Number(item.productid.price * item.quantity)
     }, 0);
@@ -17,12 +18,14 @@ export default function Cart() {
         axios.put(`http://localhost:5000/updateproduct/${cartid}`, { quantity }).then(res => toast(res.data)).catch(err => toast(err.response.data));
     }
     const removefromcart = (id) => {
-        axios.delete(`http://localhost:5000/removefromcart/${id}/${localStorage.getItem("userid")}`).then(res => { window.location.reload() }).catch(err => toast(err.response.data));
+        //loading = true
+        axios.delete(`http://localhost:5000/removefromcart/${id}/${localStorage.getItem("userid")}`).then(res => { setcart(res.data); toast("removed succefully") }).catch(err => toast(err.response.data));
     }
-    useEffect(() => {
+    /* useEffect(() => {
         axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data); setcarts(res.data) }).catch(err => toast(err.response.data));
-    }, []);
+    }, []); */
     return (
+        //loading ? <loading/> : 
         <div className='cart' >
             <div className="cartitems">
                 {cart.map(item => {

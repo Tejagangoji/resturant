@@ -8,21 +8,24 @@ import miklshake from '../ascerts/Menubanner/milkshake.jfif';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { useCart, useProducts } from '../context/Context';
 
 export default function Menu() {
+    const { products, setproducts } = useProducts();
+    const { cart, setcart } = useCart();
     const { category } = useParams();
-    const [products, setproducts] = useState([]);
-    const [cart, setcart] = useState([]);
+    //const [products, setproducts] = useState([]);
+    //const [cart, setcart] = useState([]);
     const cartproducts = cart.length > 0 ? cart.map(item => item.productid._id) : []
     const filterproducts = products.length > 0 ? products.filter(item => item.category === category) : [];
     const addtocart = (id) => {
-        axios.post("http://localhost:5000/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { toast(res.data) }).catch(err => toast(err.response.data));
+        axios.post("http://localhost:5000/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { setcart(res.data); toast("added to cart") }).catch(err => toast(err.response.data));
     }
 
-    useEffect(() => {
+    /* useEffect(() => {
         axios.get("http://localhost:5000/getproducts").then(res => { setproducts(res.data) }).catch(err => toast(err.response.data));
         axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data) }).catch(err => toast(err.response.data));
-    }, []);
+    }, []); */
     return (
         localStorage.getItem("userid") ?
             <div className='menu'>
