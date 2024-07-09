@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/menu.css';
 import { Link, Navigate, useParams } from 'react-router-dom'
 import biryani from '../ascerts/Menubanner/biryani.jfif';
@@ -11,7 +11,7 @@ import axios from 'axios';
 import { useCart, useProducts } from '../context/Context';
 
 export default function Menu() {
-    const { products, setproducts } = useProducts();
+    const { products } = useProducts();
     const { cart, setcart } = useCart();
     const { category } = useParams();
     //const [products, setproducts] = useState([]);

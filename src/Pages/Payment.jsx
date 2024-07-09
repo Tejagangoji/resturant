@@ -7,8 +7,8 @@ import axios from 'axios';
 
 export default function Payment() {
     const navigate = useNavigate();
-    const { address, setaddress } = useAddress();
-    const { carts, setcarts } = useCart();
+    const { address } = useAddress();
+    const { carts } = useCart();
     const total = carts.reduce((total, item) => {
         return Number(total) + Number(item.productid.price * item.quantity)
     }, 0);

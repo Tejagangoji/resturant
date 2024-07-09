@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Address() {
     const navigate = useNavigate();
-    const { address, setaddress } = useAddress();
+    const { setaddress } = useAddress();
     const [addr, setaddr] = useState({ name: "", address1: "", address2: "", village: "", city: "", distric: "", state: "", postalcode: "", mobile: "", })
     const chnageHnadler = (e) => {
         setaddr({ ...addr, [e.target.name]: e.target.value })
