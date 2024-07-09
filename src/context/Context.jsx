@@ -22,8 +22,8 @@ export default function Context({ children }) {
     const [cart, setcart] = useState([]);
     const [products, setproducts] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:5000/getproducts").then(res => { setproducts(res.data) }).catch(err => alert(err.response.data));
-        axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data) }).catch(err => alert(err.response.data));
+        axios.get("https://resturantbackend-otgt.onrender.com/getproducts").then(res => { setproducts(res.data) }).catch(err => alert(err.response.data));
+        axios.get(`https://resturantbackend-otgt.onrender.com/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data) }).catch(err => alert(err.response.data));
     }, []);
     return (
         <Address.Provider value={{ address, setaddress }}>

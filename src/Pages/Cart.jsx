@@ -15,11 +15,11 @@ export default function Cart() {
     }, 0);
     const quatityHandler = ({ cartid, quantity }) => {
         //console.log({ cartid, quantity })
-        axios.put(`http://localhost:5000/updateproduct/${cartid}`, { quantity }).then(res => toast(res.data)).catch(err => toast(err.response.data));
+        axios.put(`https://resturantbackend-otgt.onrender.com/updateproduct/${cartid}`, { quantity }).then(res => toast(res.data)).catch(err => toast(err.response.data));
     }
     const removefromcart = (id) => {
         //loading = true
-        axios.delete(`http://localhost:5000/removefromcart/${id}/${localStorage.getItem("userid")}`).then(res => { setcart(res.data); toast("removed succefully") }).catch(err => toast(err.response.data));
+        axios.delete(`https://resturantbackend-otgt.onrender.com/removefromcart/${id}/${localStorage.getItem("userid")}`).then(res => { setcart(res.data); toast("removed succefully") }).catch(err => toast(err.response.data));
     }
     /* useEffect(() => {
         axios.get(`http://localhost:5000/getthecart/${localStorage.getItem("userid")}`).then(res => { setcart(res.data); setcarts(res.data) }).catch(err => toast(err.response.data));

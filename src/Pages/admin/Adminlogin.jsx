@@ -12,7 +12,7 @@ export default function Adminlogin() {
     }
     const submitHnadler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:5000/adminlogin", login).then(res => {localStorage.setItem("adminlogin", "true"); return navigate('/admin')}).catch(err => toast(err.response.data));
+        axios.post("https://resturantbackend-otgt.onrender.com/adminlogin", login).then(res => {localStorage.setItem("adminlogin", "true"); return navigate('/admin')}).catch(err => toast(err.response.data));
     }
   return (
     <div>

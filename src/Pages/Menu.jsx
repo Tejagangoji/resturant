@@ -19,7 +19,7 @@ export default function Menu() {
     const cartproducts = cart.length > 0 ? cart.map(item => item.productid._id) : []
     const filterproducts = products.length > 0 ? products.filter(item => item.category === category) : [];
     const addtocart = (id) => {
-        axios.post("http://localhost:5000/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { setcart(res.data); toast("added to cart") }).catch(err => toast(err.response.data));
+        axios.post("https://resturantbackend-otgt.onrender.com/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { setcart(res.data); toast("added to cart") }).catch(err => toast(err.response.data));
     }
 
     /* useEffect(() => {

@@ -16,7 +16,7 @@ export default function Wholemenu() {
     const milkshakes = products.length > 0 ? products.filter(item => item.category === "milkshakes") : [];
     const breakfast = products.length > 0 ? products.filter(item => item.category === "breakfast") : [];
     const addtocart = (id) => {
-        axios.post("http://localhost:5000/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { setcart(res.data); toast("added to cart") }).catch(err => toast(err.response.data));
+        axios.post("https://resturantbackend-otgt.onrender.com/addtocart", { userid: localStorage.getItem("userid"), productid: id, quantity: 1 }).then(res => { setcart(res.data); toast("added to cart") }).catch(err => toast(err.response.data));
     }
     /* useEffect(() => {
         axios.get("http://localhost:5000/getproducts").then(res => { setproducts(res.data) }).catch(err => toast(err.response.data));

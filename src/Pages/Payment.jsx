@@ -13,7 +13,7 @@ export default function Payment() {
         return Number(total) + Number(item.productid.price * item.quantity)
     }, 0);
     const placeOrder = () => {
-        axios.post("http://localhost:5000/placeanorder", { userid: localStorage.getItem("userid"), cart: carts, total: total, address: address, status: false }).then(res => { toast(res.data); return navigate('/ordersuccess') }).catch(err => toast(err.response.data));
+        axios.post("https://resturantbackend-otgt.onrender.com/placeanorder", { userid: localStorage.getItem("userid"), cart: carts, total: total, address: address, status: false }).then(res => { toast(res.data); return navigate('/ordersuccess') }).catch(err => toast(err.response.data));
     }
     return (
         <div className='payment'>

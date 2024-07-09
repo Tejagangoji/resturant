@@ -9,7 +9,7 @@ export default function Orders() {
     //const products = order.length > 0 ? order.map(item => item.cart.map(pro => pro.productid)) : [];
     //console.log(order);
     useEffect(() => {
-        axios.get(`http://localhost:5000/getorders/${localStorage.getItem("userid")}`).then(res => { setorder(res.data) }).catch(err => toast(err.response.data));
+        axios.get(`https://resturantbackend-otgt.onrender.com/getorders/${localStorage.getItem("userid")}`).then(res => { setorder(res.data) }).catch(err => toast(err.response.data));
     }, []);
     return (
         <div className='orders'>

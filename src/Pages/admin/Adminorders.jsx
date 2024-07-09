@@ -6,10 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Adminorders() {
   const [order, setorder] = useState([]);
   const chnagestatus = ({ id, status }) => {
-    axios.put(`http://localhost:5000/updateorders/${id}`, { status: status }).then(res => { toast(res.data) }).catch(err => toast(err.response.data));
+    axios.put(`https://resturantbackend-otgt.onrender.com/updateorders/${id}`, { status: status }).then(res => { toast(res.data) }).catch(err => toast(err.response.data));
   }
   useEffect(() => {
-    axios.get(`http://localhost:5000/getorders`).then(res => { setorder(res.data) }).catch(err => toast(err.response.data));
+    axios.get(`https://resturantbackend-otgt.onrender.com/getorders`).then(res => { setorder(res.data) }).catch(err => toast(err.response.data));
   }, []);
   return (
     <div className='adminorder'>
